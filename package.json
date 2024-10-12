@@ -1,0 +1,15 @@
+{
+  "name": "draw-with-friends-web",
+  "version": "1.0.0",
+  "description": "This is a multiplayer drawing web app",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Md Afroz Alam",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
