@@ -3,6 +3,7 @@ function setup() {
 	background(0);
 }
 
-function draw() {
-	circle(100, 100, 50);
+function mouseDragged() {
+	stroke(255);
+	line(mouseX, mouseY, pmouseX, pmouseY);
 }
