@@ -15,4 +15,9 @@ server.listen(3000, () => {
 // Socket works
 io.on("connection", (socket) => {
 	console.log("Connected: ", socket.id);
+
+	// Getting user data
+	socket.on("mousePosition", (data) => {
+		socket.broadcast.emit("mousePosition", data);
+	})
 })
