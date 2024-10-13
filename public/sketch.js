@@ -1,4 +1,5 @@
 var socket;
+var userColor;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
@@ -8,16 +9,19 @@ function setup() {
 
 	// Listening for data from server
 	socket.on("mousePosition", drawData);
+	socket.on("userColor", (color) => {
+		userColor = color;
+	})
 	background(0);
 }
 
 function drawData(data) {
-	stroke(255);
-	line(data.x, data.y, data.pX, data.pY);
+	stroke(data.color);
+	line(data.pos.x, data.pos.y, data.pos.pX, data.pos.pY);
 }
 
 function mouseDragged() {
-	stroke(255);
+	stroke(userColor);
 	let data = {
 		x: mouseX,
 		y: mouseY,
