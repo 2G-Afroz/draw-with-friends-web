@@ -1,5 +1,11 @@
+var socket;
+
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+
+	// Variables
+	socket = io();
+
 	background(0);
 }
 
