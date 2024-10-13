@@ -40,7 +40,6 @@ io.on("connection", (socket) => {
 
 	// Getting user data and sending
 	socket.on("mousePosition", (data) => {
-		console.log(socket.rooms);
 		if(data.room) {
 			socket.to(data.room).emit("mousePosition", {
 				pos: data.pos,
