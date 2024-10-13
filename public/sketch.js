@@ -1,5 +1,6 @@
 var socket;
 var userColor;
+var room = null;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
@@ -23,11 +24,22 @@ function drawData(data) {
 function mouseDragged() {
 	stroke(userColor);
 	let data = {
-		x: mouseX,
-		y: mouseY,
-		pX: pmouseX,
-		pY: pmouseY
+		pos: {
+			x: mouseX,
+			y: mouseY,
+			pX: pmouseX,
+			pY: pmouseY
+		},
+		room
 	}
-	line(data.x, data.y, data.pX, data.pY);
+	line(data.pos.x, data.pos.y, data.pos.pX, data.pos.pY);
 	socket.emit("mousePosition", data);
+}
+
+function joinRoom() {
+	let roomName = document.getElementById("room-name").value;
+	if(roomName.trim() !== "") {
+		room = roomName.trim();
+		socket.emit("joinRoom", room);
+	}
 }
